@@ -1,0 +1,55 @@
+﻿@model List<WebApplication3.Models.UserModel>
+
+@{
+
+    
+                
+
+                Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+</head>
+<body>
+    <div>
+        <div style="text-align: center">
+            @Html.Label("Welcome to Razor", new { @style = " font-weight: bold; font-style: Arial; font-size: 24px;" })
+
+        </div>   
+            <br>
+         <div style="text-align:left">
+                @Html.Label("My Customers are: ", new { @style = "font-weight: bold; font-style: Arial; font-size: 18px; " })
+          </div>
+
+        <br>
+
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Email Address</th>
+                <th>Phone Number</th>
+            </tr>
+
+                @foreach (var user in Model )
+                {
+            <tr>
+
+                <td>@Html.DisplayFor(modelItem => user.Name)</td>
+                <td>@Html.DisplayFor(modelItem => user.Email)</td>
+                <td>@Html.DisplayFor(modelItem => user.Phone)</td>
+            </tr>
+
+                }
+                
+        </table>
+        @Html.ActionLink("Refresh Page", "Test")
+
+    </div>
+</body>
+</html>
